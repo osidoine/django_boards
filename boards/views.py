@@ -109,7 +109,7 @@ def new_topic(request, pk):
                 topic=topic,
                 created_by=request.user  # <- and here
             )
-            return redirect('PostListView', pk=pk, topic_pk=topic.pk)  # TODO: redirect to the created topic page
+            return redirect('topic_posts',pk=pk,topic_pk=topic.pk)  # TODO: redirect to the created topic page
     else:
         form = NewTopicForm()
     return render(request, 'new_topic.html', {'board': board, 'form': form})
